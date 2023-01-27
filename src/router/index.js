@@ -20,20 +20,21 @@ const routes = [
       {
         path: '/comingsoon',
         name: 'comingsoon',
-        component: () => import(/* webpackChunkName: "nowplaying" */ '../views/FilmList/ComingSoon.vue')
+        component: () => import(/* webpackChunkName: "comingsoon" */ '../views/FilmList/ComingSoon.vue')
       }
     ]
   },
   {
     path: '/detail',
-    component: () => import(/* webpackChunkName: "nowplaying" */ '../views/DetailView.vue'),
+    component: () => import(/* webpackChunkName: "detail" */ '../views/FilmDetail.vue'),
     meta: {
-      hasTabBar: true
+      hasTabBar: false
     }
   },
   {
-    path: '/detail:filmId',
-    component: () => import(/* webpackChunkName: "nowplaying" */ '../views/DetailView.vue'),
+    path: '/detail/:filmId',
+    name: 'detail',
+    component: () => import(/* webpackChunkName: "detail" */ '../views/FilmDetail.vue'),
     meta: {
       hasTabBar: false
     }
@@ -57,8 +58,16 @@ const routes = [
     }
   },
   {
+    path: '/citylist',
+    name: 'citylist',
+    component: () => import(/* webpackChunkName: "cinemas" */ '../views/CityList.vue')
+  },
+  {
     path: '/404',
-    component: () => import(/* webpackChunkName: "404" */ '../views/NotFound.vue')
+    component: () => import(/* webpackChunkName: "404" */ '../views/NotFound.vue'),
+    meta: {
+      hasTabBar: false
+    }
   },
   {
     path: '/:pathMatch(.*)*', // 匹配任意路径
@@ -72,6 +81,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  console.log('路由跳转', from.fullPath, '到', to.fullPath)
   if (to.meta.hasTabBar) {
     store.commit('SHOW_TABBAR')
   } else {

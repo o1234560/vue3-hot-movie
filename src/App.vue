@@ -3,7 +3,7 @@
     <tab-bar v-if="$store.state.showTabBar" />
     <section>
       <router-view v-slot="{ Component }">
-        <keep-alive>
+        <keep-alive include="HomeView">
           <component :is="Component" />
         </keep-alive>
       </router-view>
@@ -43,6 +43,9 @@ a {
   &:hover {
     color: #000;
   }
+}
+img {
+  height: 100%;
 }
 #app {
   overflow: hidden;

@@ -1,14 +1,6 @@
 <template>
   <div id="cinemas">
-    <h1>cinemas</h1>
-    <h1>cinemas</h1>
-    <h1>cinemas</h1>
-    <h1>cinemas</h1>
-    <h1>cinemas</h1>
-    <h1>cinemas</h1>
-    <h1>cinemas</h1>
-    <h1>cinemas</h1>
-    <h1>cinemas</h1>
+    <van-nav-bar :left-text="cityId" @click-left="changeCity" />
     <h1>cinemas</h1>
     <h1>cinemas</h1>
     <h1>cinemas</h1>
@@ -40,7 +32,24 @@
 
 <script>
 export default {
+  data () {
+    return {
 
+    }
+  },
+  mounted () {
+
+  },
+  computed: {
+    cityId () {
+      return this.$store.state.cityId
+    }
+  },
+  methods: {
+    changeCity () {
+      this.$router.push('/citylist')
+    }
+  }
 }
 </script>
 
