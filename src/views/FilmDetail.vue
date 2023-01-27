@@ -15,7 +15,7 @@
             ><span>{{ film.item.name }}</span></span
           >
           <span>
-            <span>{{ film.grade }}</span
+            <span>{{ film.grade || 0 }}</span
             >分
           </span>
         </div>
@@ -67,6 +67,7 @@
         @close-show="closeShow()"
       ></photo-show>
     </div>
+    <van-empty v-else>加载中...</van-empty>
   </div>
 </template>
 

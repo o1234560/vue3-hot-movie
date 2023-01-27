@@ -1,8 +1,8 @@
 <template>
   <div id="comingsoon">
     <ul v-if="filmList.length > 0">
-      <film-item :filmList="filmList"></film-item>
-      <film-footer :showMore="showMore"></film-footer>
+      <film-item :filmList="filmList" @handleToPage="handleToPage" />
+      <film-footer :showMore="showMore" />
     </ul>
     <van-empty v-else description="加载中..." />
   </div>
@@ -59,6 +59,15 @@ export default {
       } else {
         this.showMore = false
       }
+    },
+    handleToPage (filmId) {
+      console.log('点击了，跳转到', filmId)
+      this.$router.push({
+        name: 'detail',
+        params: {
+          filmId
+        }
+      })
     }
   }
 }
