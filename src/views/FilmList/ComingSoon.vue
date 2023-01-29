@@ -4,7 +4,7 @@
       <film-item :filmList="filmList" @handleToPage="handleToPage" />
       <film-footer :showMore="showMore" />
     </ul>
-    <van-empty v-else description="加载中..." />
+    <van-empty v-else description="暂无数据" />
   </div>
 </template>
 

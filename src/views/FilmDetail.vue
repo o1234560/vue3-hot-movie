@@ -60,6 +60,7 @@
 
       <detail-footer></detail-footer>
 
+      <!-- 自定义的图片预览组件 -->
       <photo-show
         v-if="photoShow"
         :photos="film.photos"
@@ -67,13 +68,15 @@
         @close-show="closeShow()"
       ></photo-show>
     </div>
-    <van-empty v-else>加载中...</van-empty>
+    <van-empty v-else>暂无数据</van-empty>
   </div>
 </template>
 
 <script>
 import http from '@/util/http'
 import moment from 'moment'
+import { showImagePreview } from 'vant'
+import 'vant/es/image-preview/style'
 import DetailNavbar from '@/components/FilmDetail/detail-navbar.vue'
 import DetailFooter from '@/components/FilmDetail/detail-footer.vue'
 import PhotoShow from '@/components/FilmDetail/photo-show.vue'
@@ -127,7 +130,8 @@ export default {
     handlePhoto (index) {
       console.log(index)
       this.index = index
-      this.photoShow = true
+      this.photoShow = false
+      showImagePreview([...this.film.photos])
     },
     closeShow () {
       this.photoShow = false

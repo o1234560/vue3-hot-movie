@@ -14,6 +14,7 @@
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
+    "vant": "^4.0.9",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
@@ -34,7 +35,6 @@
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
-    "unplugin-vue-components": "^0.22.12",
-    "vant": "^4.0.8"
+    "unplugin-vue-components": "^0.22.12"
   }
 }
